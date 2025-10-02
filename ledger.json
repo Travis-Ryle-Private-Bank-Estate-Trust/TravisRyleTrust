@@ -1,0 +1,15 @@
+{
+  "trust": "The Travis Ryle Private Bank Estate & Trust",
+  "orcid": https://orcid.org/0009-0002-7324-9643,
+  "definitions": "definitions.md",
+  "trust_declaration": "trust-declaration.md",
+  "notices": [],
+  "promissory_notes": [],
+  "log": [
+    {
+      "date": "2025-10-02",
+      "event": "Repository initialized",
+      "by": "Travis Steven Ryle"
+    }
+  ]
+}
