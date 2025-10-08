@@ -14,3 +14,4 @@ Determining paternity for children born out of wedlock.
 Referring cases requiring criminal enforcement services to the district attorney.
 Ensuring accessibility and accountability of local child support agencies to the public.
 The director of the California Department of Child Support Services oversees these agencies and ensures compliance with federal and state laws. 
+The local child support agency shall take appropriate action, including criminal action in cooperation with the district attorneys, to establish, modify, and enforce child support and, if appropriate, enforce spousal support orders if the child is receiving public assistance, including Medi-Cal, and, if requested, shall take the same actions on behalf of a child who is not receiving public assistance, including Medi-Cal.
