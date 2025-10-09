@@ -1,5 +1,4 @@
-Use subfolders:
-- emails/: export .eml/.msg or PDF versions of email threads
-- letters/: PDFs or images of mailed letters
-- notes/: call summaries and meeting notes
-Name files YYYY-MM-DD-topic.ext for easy sorting.
+- emails/: Save exported .eml/.msg/.mbox or PDF prints of threads
+- letters/: PDFs or images of physical letters
+- notes/: call notes, meeting summaries (Markdown or text)
+Naming: YYYY-MM-DD-topic.ext

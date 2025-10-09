@@ -1,0 +1,36 @@
+name: Attachments Checksums
+on:
+  push:
+    paths:
+      - "records/**"
+      - "docs/**"
+      - "communications/**"
+      - "scripts/**"
+      - ".github/workflows/attachments.yml"
+  pull_request:
+    paths:
+      - "records/**"
+      - "docs/**"
+      - "communications/**"
+      - "scripts/**"
+jobs:
+  update-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip pyyaml
+          sudo apt-get update
+          sudo apt-get install -y yq || true
+      - name: Run updater
+        run: python3 scripts/update_attachments.py
+      - name: Fail if updater modified files
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Updater modified YAML. Commit updated checksums."; git --no-pager diff; exit 1; fi
+      - name: Validate
+        run: bash scripts/validate.sh

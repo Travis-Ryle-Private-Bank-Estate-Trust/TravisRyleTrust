@@ -1,1 +1,1 @@
-Keep reusable templates: letters, email skeletons, checklists.
+Reusable templates (letters, email drafts, checklists).
