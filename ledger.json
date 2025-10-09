@@ -1,6 +1,6 @@
 {
   "trust": "The Travis Ryle Private Bank Estate & Trust",
-  "orcid": https://orcid.org/0009-0002-7324-9643,
+  "orcid": "https://orcid.org/0009-0002-7324-9643",
   "definitions": "definitions.md",
   "trust_declaration": "trust-declaration.md",
   "notices": [],

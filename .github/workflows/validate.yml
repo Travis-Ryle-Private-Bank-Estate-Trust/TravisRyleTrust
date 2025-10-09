@@ -1,0 +1,32 @@
+name: Validate Repository Files
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Validate JSON files
+      run: |
+        echo "Validating JSON files..."
+        for file in $(find . -name "*.json" -not -path "./node_modules/*"); do
+          echo "Checking $file"
+          python3 -m json.tool "$file" > /dev/null
+        done
+        echo "All JSON files are valid!"
+        
+    - name: Validate Markdown files
+      run: |
+        echo "Checking Markdown files exist..."
+        test -f README.md
+        test -f trust-declaration.md
+        test -f definitions.md
+        echo "All required Markdown files are present!"
