@@ -7,3 +7,6 @@ These definitions govern all notices, correspondence, and instruments issued by 
 - **Beneficiary**: The same living man and his heirs, entitled to the fruits of the Trust.
 - **Fictitious Person**: The all-caps corporate construct derived from my birth record and re-domiciled into the Private Living Express Trust.
 - **Private Living Express Trust**: The ecclesiastical trust declared and published at ORCID and indexed here.
+**We** Refers to The Trust, The Collective Body of Heirs Refered as posterity in the Constitution for
+  The United States of America as rightfull Beneficiaries
+  **Resident** Member of the Republic And Nothing to do with the District Of Columbia 
