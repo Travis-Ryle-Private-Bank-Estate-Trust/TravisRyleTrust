@@ -52,18 +52,33 @@ def main():
         arg = args[i]
         if arg == "--to":
             i += 1
+            if i >= len(args):
+                print("Error: --to requires a value", file=sys.stderr)
+                return 2
             to_recipient = args[i]
         elif arg == "--subject":
             i += 1
+            if i >= len(args):
+                print("Error: --subject requires a value", file=sys.stderr)
+                return 2
             subject = args[i]
         elif arg == "--cc":
             i += 1
+            if i >= len(args):
+                print("Error: --cc requires a value", file=sys.stderr)
+                return 2
             cc_recipients.append(args[i])
         elif arg == "--date":
             i += 1
+            if i >= len(args):
+                print("Error: --date requires a value", file=sys.stderr)
+                return 2
             sent_date = args[i]
         elif arg == "--notes":
             i += 1
+            if i >= len(args):
+                print("Error: --notes requires a value", file=sys.stderr)
+                return 2
             notes.append(args[i])
         elif not email_file:
             email_file = arg
