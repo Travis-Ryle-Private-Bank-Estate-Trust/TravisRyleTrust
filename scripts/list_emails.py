@@ -8,8 +8,21 @@ from datetime import datetime
 
 def main():
     format_type = "table"
-    if len(sys.argv) > 1 and sys.argv[1] == "--format" and len(sys.argv) > 2:
-        format_type = sys.argv[2]
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--format":
+            if len(sys.argv) > 2:
+                if sys.argv[2] in ["json", "table"]:
+                    format_type = sys.argv[2]
+                else:
+                    print(f"Error: Invalid format '{sys.argv[2]}'. Must be 'json' or 'table'.", file=sys.stderr)
+                    return 2
+            else:
+                print("Error: --format requires a value (json or table)", file=sys.stderr)
+                return 2
+        else:
+            print(f"Error: Unknown argument '{sys.argv[1]}'", file=sys.stderr)
+            print("Usage: scripts/list_emails.py [--format json|table]", file=sys.stderr)
+            return 2
     
     emails = []
     for record_file in sorted(glob.glob("records/*.yaml") + glob.glob("records/*.yml")):

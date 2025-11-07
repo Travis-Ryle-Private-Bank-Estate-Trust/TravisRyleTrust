@@ -97,13 +97,15 @@ def main():
         print("Error: --subject is required", file=sys.stderr)
         return 2
 
-    # Normalize path
+    # Normalize and validate path to prevent directory traversal
     email_file = normalize(email_file)
+    abs_email_file = os.path.abspath(email_file)
+    abs_emails_dir = os.path.abspath("communications/emails")
     
-    # Validate that file is in communications/emails/
-    if not email_file.startswith("communications/emails/"):
+    # Validate that file is in communications/emails/ directory
+    if not abs_email_file.startswith(abs_emails_dir + os.sep):
         print(f"Error: Email file must be in communications/emails/ directory", file=sys.stderr)
-        print(f"Current path: {email_file}", file=sys.stderr)
+        print(f"Provided path: {email_file}", file=sys.stderr)
         return 2
     
     # Create record
