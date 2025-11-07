@@ -55,8 +55,8 @@ def main():
         print(f"\n{'Date':<12} {'To':<30} {'Subject':<40} {'Status':<10}")
         print("-" * 95)
         for email in emails:
-            subject = email['subject'][:37] + "..." if len(email['subject']) > 40 else email['subject']
-            to = email['to'][:27] + "..." if len(email['to']) > 30 else email['to']
+            subject = email['subject'][:37] + "..." if len(email['subject']) > 37 else email['subject']
+            to = email['to'][:27] + "..." if len(email['to']) > 27 else email['to']
             print(f"{email['date']:<12} {to:<30} {subject:<40} {email['status']:<10}")
         
         print(f"\nTotal emails tracked: {len(emails)}\n")

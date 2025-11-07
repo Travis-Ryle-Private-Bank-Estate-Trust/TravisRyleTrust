@@ -103,7 +103,13 @@ def main():
     abs_emails_dir = os.path.abspath("communications/emails")
     
     # Validate that file is in communications/emails/ directory
-    if not abs_email_file.startswith(abs_emails_dir + os.sep):
+    try:
+        if os.path.commonpath([abs_email_file, abs_emails_dir]) != abs_emails_dir:
+            print(f"Error: Email file must be in communications/emails/ directory", file=sys.stderr)
+            print(f"Provided path: {email_file}", file=sys.stderr)
+            return 2
+    except ValueError:
+        # Different drives on Windows
         print(f"Error: Email file must be in communications/emails/ directory", file=sys.stderr)
         print(f"Provided path: {email_file}", file=sys.stderr)
         return 2
