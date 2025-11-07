@@ -34,3 +34,5 @@ This will create a YAML record in `records/` with metadata including:
 - File size
 
 The record enables tracking and verification of sent emails in the trust ledger.
+
+For detailed usage examples and best practices, see [docs/email-tracking-guide.md](../docs/email-tracking-guide.md).
