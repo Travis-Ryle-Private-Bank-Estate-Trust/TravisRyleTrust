@@ -8,4 +8,14 @@ This repository serves as the **public-facing ledger** of the Private Living Exp
 - **Definitions**: See [definitions.md](definitions.md)
 - **Ledger**: See [ledger.json](ledger.json)
 
-All notices, definitions, and promissory notes are published here for **traceability, timestamping, and public inspection**.
+All notices, definitions, promissory notes, and communications are published here for **traceability, timestamping, and public inspection**.
+
+## Email Tracking
+
+This repository includes a system for tracking sent emails with cryptographic verification:
+
+- **Store emails** in `communications/emails/` as .eml, .msg, .mbox, or PDF files
+- **Track emails** using `scripts/track_email.py` to create verified records
+- **List emails** using `scripts/list_emails.py` to view all tracked correspondence
+
+See [communications/README.md](communications/README.md) for detailed instructions.

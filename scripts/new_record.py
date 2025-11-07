@@ -4,7 +4,7 @@ import sys, os, uuid, datetime as dt, yaml, hashlib
 ALLOWED_ROOTS = {"docs", "communications"}
 
 def now_iso():
-    return dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
 
 def sha256(path):
     h = hashlib.sha256()

@@ -1,0 +1,10 @@
+From: travis@example.com
+To: recipient@example.com
+Subject: Test Email for Tracking
+Date: Thu, 7 Nov 2025 00:00:00 +0000
+Message-ID: <test123@example.com>
+
+This is a test email to verify the email tracking functionality.
+
+Best regards,
+Travis

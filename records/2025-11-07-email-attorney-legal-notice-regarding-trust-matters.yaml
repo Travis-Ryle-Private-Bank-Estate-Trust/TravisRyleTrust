@@ -1,0 +1,22 @@
+id: fd21ba28-b930-4073-a058-d768dea427b3
+type: email
+title: 'Email: Legal Notice Regarding Trust Matters'
+created_at: '2025-11-07T00:41:45Z'
+status: sent
+email_metadata:
+  to: attorney@lawfirm.com
+  cc:
+  - trustee@example.com
+  subject: Legal Notice Regarding Trust Matters
+  sent_date: '2025-11-07'
+notes:
+- Formal notice to attorney regarding trust matters
+metadata:
+  source: track_email
+  version: 1
+attachments:
+- path: communications/emails/2025-11-07-legal-notice.eml
+  description: Email to attorney@lawfirm.com
+  exists: true
+  bytes: 517
+  sha256: 44239253687523d8ee32a15cd06f11099cc1996d52b5064385d727b5d2e219dc
