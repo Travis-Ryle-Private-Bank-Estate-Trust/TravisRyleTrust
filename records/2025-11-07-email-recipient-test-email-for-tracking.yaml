@@ -1,0 +1,21 @@
+id: fc066e76-dc52-4dfc-8be9-eecf997dc6eb
+type: email
+title: 'Email: Test Email for Tracking'
+created_at: '2025-11-07T00:41:27Z'
+status: sent
+email_metadata:
+  to: recipient@example.com
+  cc: []
+  subject: Test Email for Tracking
+  sent_date: '2025-11-07'
+notes:
+- Test email to verify tracking functionality
+metadata:
+  source: track_email
+  version: 1
+attachments:
+- path: communications/emails/2025-11-07-test-email.eml
+  description: Email to recipient@example.com
+  exists: true
+  bytes: 243
+  sha256: d44b9d7a89271c9a6ddcdd241ee9fcc922f61dcab1da1d26973294a54a1bfbf8
