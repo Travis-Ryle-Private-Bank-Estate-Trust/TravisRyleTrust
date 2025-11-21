@@ -1,0 +1,11 @@
+Reporting-MTA: dns; mail-node-5.jouwweb.nl
+X-Postfix-Queue-ID: 3FEDC13B865
+X-Postfix-Sender: rfc822; travisryle@lawfully-illegal.com
+Arrival-Date: Thu, 20 Nov 2025 23:41:31 +0000 (UTC)
+
+Final-Recipient: rfc822; kingmanjustice@mohavecourts.com
+Original-Recipient: rfc822;kingmanjustice@mohavecourts.com
+Action: relayed
+Status: 2.0.0
+Remote-MTA: dns; smtp.mailchannels.net
+Diagnostic-Code: smtp; 250 2.0.0 Ok: queued as 6D3D5761D6A
