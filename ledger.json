@@ -3,6 +3,10 @@
   "orcid": "https://orcid.org/0009-0002-7324-9643",
   "definitions": "definitions.md",
   "trust_declaration": "trust-declaration.md",
+  "website": {
+    "tracking_url": "https://www.lawfully-illegal.com/tracking",
+    "contact_email": "travisryle@lawfully-illegal.com"
+  },
   "notices": [
     {
       "id": "CERT-2025-10-04-001",
@@ -32,6 +36,11 @@
     {
       "date": "2025-11-07",
       "event": "Email tracking system implemented",
+      "by": "Travis Steven Ryle"
+    },
+    {
+      "date": "2025-11-26",
+      "event": "Website tracking integration configured (https://www.lawfully-illegal.com/tracking)",
       "by": "Travis Steven Ryle"
     }
   ]
