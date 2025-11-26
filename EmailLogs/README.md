@@ -28,16 +28,9 @@ Email logs stored here should be cross-referenced with the main `communications/
 This repository is integrated with the tracking system at:
 **https://www.lawfully-illegal.com/tracking**
 
-To sync records with the website:
+To open the tracking page, just run:
 ```bash
-# Check connection status
-python3 scripts/sync_tracking.py --status
-
-# Push local records to website
-python3 scripts/sync_tracking.py --push
-
-# Pull records from website
-python3 scripts/sync_tracking.py --pull
+python3 scripts/sync_tracking.py
 ```
 
-Configure your API key in `.env` file (see `.env.example` for template).
+This will open the tracking website in your browser automatically.
