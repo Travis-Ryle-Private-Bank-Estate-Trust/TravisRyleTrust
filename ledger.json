@@ -5,7 +5,37 @@
   "trust_declaration": "trust-declaration.md",
   "website": {
     "tracking_url": "https://www.lawfully-illegal.com/tracking",
+    "public_ledge_url": "https://www.lawfully-illegal.com/public-ledge",
     "contact_email": "travisryle@lawfully-illegal.com"
+  },
+  "public_ledger": {
+    "directory": "records/public-ledger",
+    "entries": [
+      {
+        "led_id": "LED-20251123-004",
+        "action": "Public record inquiry: Kingman court",
+        "party": "Mohave County / Kingman",
+        "date": "2025-11-23",
+        "status": "Open",
+        "bates": "Ryle-KINGMAN-COURT-0001"
+      },
+      {
+        "led_id": "LED-20251123-005",
+        "action": "Entity dossier: Aztec Constructors",
+        "party": "Corporate records",
+        "date": "2025-11-23",
+        "status": "Open",
+        "bates": "Ryle-AZTEC-DOSSIER-0001"
+      },
+      {
+        "led_id": "LED-20251123-006",
+        "action": "County records inquiry: Contra Costa",
+        "party": "Contra Costa County",
+        "date": "2025-11-23",
+        "status": "Open",
+        "bates": "Ryle-CONTRA-COSTA-0001"
+      }
+    ]
   },
   "notices": [
     {
@@ -41,6 +71,16 @@
     {
       "date": "2025-11-26",
       "event": "Website tracking integration configured (https://www.lawfully-illegal.com/tracking)",
+      "by": "Travis Steven Ryle"
+    },
+    {
+      "date": "2025-11-28",
+      "event": "Public ledge integration configured (https://www.lawfully-illegal.com/public-ledge)",
+      "by": "Travis Steven Ryle"
+    },
+    {
+      "date": "2025-11-28",
+      "event": "Added ledger entries: LED-20251123-004 (Kingman court), LED-20251123-005 (Aztec Constructors), LED-20251123-006 (Contra Costa)",
       "by": "Travis Steven Ryle"
     }
   ]

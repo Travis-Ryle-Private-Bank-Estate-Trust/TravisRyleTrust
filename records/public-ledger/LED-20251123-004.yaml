@@ -1,0 +1,21 @@
+led_id: LED-20251123-004
+action: "Public record inquiry: Kingman court"
+party: Mohave County / Kingman
+date: "2025-11-23"
+status: Open
+links:
+  exhibit: null
+hash: SHA256-PENDING
+bates: Ryle-KINGMAN-COURT-0001
+metadata:
+  source: public-ledge
+  website: https://www.lawfully-illegal.com/public-ledge
+  version: 1
+  created_at: "2025-11-23T00:00:00Z"
+notes:
+  - Public record inquiry submitted to Kingman court
+  - Related to Mohave County judicial records
+  - Tracking via lawfully-illegal.com public ledger
+related_cases:
+  - TR2024-0143
+  - CV 2023 0335 UN
