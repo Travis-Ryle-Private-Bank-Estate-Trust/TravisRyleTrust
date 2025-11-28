@@ -10,6 +10,22 @@ This repository serves as the **public-facing ledger** of the Private Living Exp
 
 All notices, definitions, promissory notes, and communications are published here for **traceability, timestamping, and public inspection**.
 
+## Public Ledger Integration
+
+This repository integrates with the [lawfully-illegal.com public ledge](https://www.lawfully-illegal.com/public-ledge) for tracking public record inquiries:
+
+- **View ledger entries**: `python3 scripts/sync_public_ledge.py --list`
+- **Open public ledge**: `python3 scripts/sync_public_ledge.py`
+- **Ledger records**: Stored in `records/public-ledger/`
+
+### Current Ledger Entries
+
+| ID | Action | Party | Status | Bates |
+|----|--------|-------|--------|-------|
+| LED-20251123-004 | Public record inquiry: Kingman court | Mohave County / Kingman | Open | Ryle-KINGMAN-COURT-0001 |
+| LED-20251123-005 | Entity dossier: Aztec Constructors | Corporate records | Open | Ryle-AZTEC-DOSSIER-0001 |
+| LED-20251123-006 | County records inquiry: Contra Costa | Contra Costa County | Open | Ryle-CONTRA-COSTA-0001 |
+
 ## Email Tracking
 
 This repository includes a system for tracking sent emails with cryptographic verification:
