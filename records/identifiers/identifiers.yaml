@@ -17,6 +17,17 @@ identifiers:
   - type: "Trust Name"
     value: "The Travis Ryle Private Bank Estate & Trust"
     notes: "Official trust name for public record searches"
+  
+  # LexisNexis Identifiers
+  - type: "LexID"
+    value: "4022387079"
+    source: "LexisNexis"
+    notes: "LexisNexis person identifier for public record tracking"
+  
+  - type: "Consumer Number"
+    value: "17118469"
+    source: "LexisNexis"
+    notes: "LexisNexis consumer file number"
 
 # Entities to track and verify against public records
 # Add corporations, courts, agencies here to monitor their statements
@@ -37,6 +48,11 @@ entities:
 
 # Public record sources to query
 sources:
+  - name: "LexisNexis"
+    url: "https://www.lexisnexis.com/"
+    type: "aggregator"
+    description: "Public records aggregator - tracks LexID and consumer identifiers"
+  
   - name: "SEC EDGAR"
     url: "https://www.sec.gov/cgi-bin/browse-edgar"
     type: "federal"
