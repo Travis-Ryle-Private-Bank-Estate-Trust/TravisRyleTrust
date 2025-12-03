@@ -1,0 +1,81 @@
+# Incrimination Nation - Identifier Registry
+# These identifiers are scraped against public records to verify truth
+# Website integration: https://www.lawfully-illegal.com/public-ledge
+
+metadata:
+  created_at: "2025-12-03T00:00:00Z"
+  website: "https://www.lawfully-illegal.com"
+  purpose: "Incrimination Nation - Corporate truth verification via public records"
+  github_repo: "https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust"
+
+# Personal identifiers to track
+identifiers:
+  - type: "ORCID"
+    value: "0009-0002-7324-9643"
+    notes: "Travis Ryle Trust identifier - indexed at orcid.org"
+  
+  - type: "Trust Name"
+    value: "The Travis Ryle Private Bank Estate & Trust"
+    notes: "Official trust name for public record searches"
+  
+  # LexisNexis Identifiers
+  - type: "LexID"
+    value: "4022387079"
+    source: "LexisNexis"
+    notes: "LexisNexis person identifier for public record tracking"
+  
+  - type: "Consumer Number"
+    value: "17118469"
+    source: "LexisNexis"
+    notes: "LexisNexis consumer file number"
+
+# Entities to track and verify against public records
+# Add corporations, courts, agencies here to monitor their statements
+entities:
+  # Example entry - add your entities here
+  # - name: "Example Corporation"
+  #   type: "LLC"
+  #   state: "Arizona"
+  #   identifiers:
+  #     file_number: "L12345678"
+  #     ein: "XX-XXXXXXX"
+  #   claimed_statements:
+  #     - field: "registered_agent"
+  #       value: "John Doe"
+  #       source: "company_website"
+  #   notes:
+  #     - "Track this entity for truth verification"
+
+# Public record sources to query
+sources:
+  - name: "LexisNexis"
+    url: "https://www.lexisnexis.com/"
+    type: "aggregator"
+    description: "Public records aggregator - tracks LexID and consumer identifiers"
+  
+  - name: "SEC EDGAR"
+    url: "https://www.sec.gov/cgi-bin/browse-edgar"
+    type: "federal"
+    description: "Securities and Exchange Commission filings"
+  
+  - name: "Arizona Corporation Commission"
+    url: "https://ecorp.azcc.gov/"
+    type: "state"
+    state: "AZ"
+    description: "Arizona corporate records"
+  
+  - name: "California Secretary of State"
+    url: "https://bizfileonline.sos.ca.gov/"
+    type: "state"
+    state: "CA"
+    description: "California business filings"
+  
+  - name: "PACER"
+    url: "https://pacer.uscourts.gov/"
+    type: "federal"
+    description: "Federal court records"
+  
+  - name: "Lawfully Illegal Public Ledge"
+    url: "https://www.lawfully-illegal.com/public-ledge"
+    type: "integration"
+    description: "Primary website integration for tracking"

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% seo %}
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/ledger' | relative_url }}">Ledger</a>
+        <a href="{{ '/identifiers' | relative_url }}">Identifiers</a>
+        <a href="https://www.lawfully-illegal.com" target="_blank">Website</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; {{ site.time | date: "%Y" }} {{ site.title }}
+    </p>
+    <p>
+      <a href="https://www.lawfully-illegal.com" target="_blank">Lawfully Illegal</a> |
+      <a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust" target="_blank">GitHub</a> |
+      <a href="https://orcid.org/0009-0002-7324-9643" target="_blank">ORCID</a>
+    </p>
+    <p class="notice">
+      ⚖️ All records are stored in immutable Git history and cannot be destroyed.
+    </p>
+  </footer>
+</body>
+</html>

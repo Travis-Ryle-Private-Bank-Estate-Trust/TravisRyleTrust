@@ -1,0 +1,113 @@
+name: Incrimination Nation - Identifier Scraper
+
+# This workflow creates an immutable record trail in GitHub
+# by scraping public records and storing them with timestamps.
+# GitHub's Git history serves as tamper-evident storage.
+
+on:
+  # Run on schedule - daily at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+  
+  # Run on manual trigger
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'scrape'
+        type: choice
+        options:
+          - scrape
+          - report
+          - list
+      entity_name:
+        description: 'Specific entity to scrape (optional)'
+        required: false
+        type: string
+
+  # Run when identifiers config changes
+  push:
+    paths:
+      - 'records/identifiers/**'
+      - 'scripts/scrape_identifiers.py'
+
+jobs:
+  scrape-and-record:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for immutable record
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml requests
+      
+      - name: Initialize identifiers (if needed)
+        run: |
+          if [ ! -f "records/identifiers/identifiers.yaml" ]; then
+            python3 scripts/scrape_identifiers.py --init
+          fi
+      
+      - name: Run identifier scraper
+        if: ${{ github.event.inputs.action == 'scrape' || github.event_name == 'schedule' || github.event_name == 'push' }}
+        run: |
+          echo "🔍 Running Incrimination Nation Scraper..."
+          echo "Creating immutable record in GitHub..."
+          python3 scripts/scrape_identifiers.py --scrape
+      
+      - name: Generate discrepancy report
+        if: ${{ github.event.inputs.action == 'report' }}
+        run: |
+          echo "📊 Generating discrepancy report..."
+          python3 scripts/scrape_identifiers.py --report
+      
+      - name: List identifiers
+        if: ${{ github.event.inputs.action == 'list' }}
+        run: |
+          echo "📋 Listing configured identifiers..."
+          python3 scripts/scrape_identifiers.py --list
+      
+      - name: Commit scraped records
+        run: |
+          git config user.name "Incrimination Nation Bot"
+          git config user.email "bot@lawfully-illegal.com"
+          
+          # Add all new records
+          git add records/
+          
+          # Check if there are changes to commit
+          if git diff --cached --quiet; then
+            echo "No new records to commit."
+          else
+            TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+            git commit -m "📜 Incrimination Nation: Record snapshot ${TIMESTAMP}
+
+Automated public record scrape committed to immutable Git history.
+Website: https://www.lawfully-illegal.com/public-ledge
+
+This record cannot be destroyed - it is part of Git history."
+            
+            git push
+            echo "✅ Records committed to immutable Git history."
+          fi
+      
+      - name: Generate record manifest
+        run: |
+          echo "📁 Current Record Manifest:"
+          echo "=========================="
+          find records/ -name "*.yaml" -type f | sort
+          echo ""
+          echo "Total records: $(find records/ -name "*.yaml" -type f | wc -l)"
+          echo "Git commits: $(git rev-list --count HEAD)"

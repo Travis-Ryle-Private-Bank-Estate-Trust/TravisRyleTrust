@@ -1,0 +1,57 @@
+title: The Travis Ryle Private Bank Estate & Trust
+description: Public-facing ledger and Incrimination Nation tracking system
+url: "https://travis-ryle-private-bank-estate-trust.github.io"
+baseurl: "/TravisRyleTrust"
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from build
+exclude:
+  - .git
+  - .github
+  - scripts
+  - "*.py"
+  - "*.sh"
+  - .env
+  - .env.example
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor
+
+# Include data files
+include:
+  - _data
+
+# Collections
+collections:
+  records:
+    output: true
+    permalink: /records/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Site metadata
+author:
+  name: Travis Steven Ryle
+  title: Ambassador in Christ, Grantor, Guarantor, Beneficiary
+
+# External links
+external_links:
+  website: "https://www.lawfully-illegal.com"
+  public_ledge: "https://www.lawfully-illegal.com/public-ledge"
+  tracking: "https://www.lawfully-illegal.com/tracking"
+  orcid: "https://orcid.org/0009-0002-7324-9643"
