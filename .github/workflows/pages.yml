@@ -36,14 +36,9 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
       
-      - name: Install dependencies
-        run: |
-          gem install jekyll bundler
-          if [ -f Gemfile ]; then bundle install; fi
-      
       - name: Build with Jekyll
         run: |
-          jekyll build --source . --destination ./_site
+          bundle exec jekyll build --source . --destination ./_site --trace
         env:
           JEKYLL_ENV: production
       
