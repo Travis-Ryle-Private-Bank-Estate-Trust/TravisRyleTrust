@@ -1,0 +1,71 @@
+Return-Path: <jeffrey.allen.lapointe@gmail.com>
+Delivered-To: travisryle@lawfully-illegal.com
+Received: from mail-node-5.jouwweb.nl ([::1])
+    by mail-node-5.jouwweb.nl with LMTP
+    id IJq8JElUS2mb0SUAg1PJYQ
+    (envelope-from <jeffrey.allen.lapointe@gmail.com>)
+    for <travisryle@lawfully-illegal.com>; Wed, 24 Dec 2025 02:47:37 +0000
+Received: from mail-node-4.jouwweb.nl ([10.164.0.40])
+    by mail-node-5.jouwweb.nl with LMTP
+    id yLANJElUS2lEtAQAGY3MmA:P1
+    (envelope-from <jeffrey.allen.lapointe@gmail.com>)
+    for <travisryle@lawfully-illegal.com>; Wed, 24 Dec 2025 02:47:37 +0000
+Received: from mail-node-4.jouwweb.nl
+    by mail-node-4.jouwweb.nl with LMTP
+    id yLANJElUS2lEtAQAGY3MmA
+    (envelope-from <jeffrey.allen.lapointe@gmail.com>)
+    for <travisryle@lawfully-illegal.com>; Wed, 24 Dec 2025 02:47:37 +0000
+Authentication-Results: mail-node-4.jouwweb.nl;
+    dkim=pass (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=j3aBJxa6;
+    dkim-atps=neutral
+Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
+    (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+    key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+    (No client certificate requested)
+    by mail-node-4.jouwweb.nl (Postfix) with ESMTPS id 5700A17A082
+    for <travisryle@lawfully-illegal.com>; Wed, 24 Dec 2025 02:47:37 +0000 (UTC)
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-640c9c85255so5760028d50.3
+    for <travisryle@lawfully-illegal.com>; Tue, 23 Dec 2025 18:47:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+    d=gmail.com; s=20230601; t=1766544456; x=1767149256; darn=lawfully-illegal.com;
+    h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+    :date:message-id:reply-to;
+    bh=jMhq9EECDzQMqks6ChLFOpnm0HGmrWgRH9/LWp5JGek=;
+    b=j3aBJxa6UbPNa/CiiCBVRfgkz90NYS9Dk4Qs7IbbZD0FKDi0bxaThuPq72vsXCu3Gh
+    zLAkw6zugNVDpXucgI72I3zgAX6NapjYV5xDk/0uKMg8xsTnF0nkrlDjFQfU2fSsVZEi
+    mQ2i0u/8k4I5qz/i34oG46ZT66GduGyqcwmsuMyBGe57tWt91PZFF2WP1lYtu6Ol9BIt
+    80UXSxXwV0+NAiWGFvNjyp7fx0+FClrEBR377cMAzZXanUzwMzFXge96E1Q90ezPxlzT
+    pA7lKrZbN7RgNtCfZ40ARlV/LS2mg4SWlQHuUyYRZofiW2Zot1iXVSktMi9v/UWm1SZX
+    jONg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+    d=1e100.net; s=20230601; t=1766544456; x=1767149256;
+    h=to:subject:message-id:date:from:mime-version:x-gm-gg
+    :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+    bh=jMhq9EECDzQMqks6ChLFOpnm0HGmrWgRH9/LWp5JGek=;
+    b=QntH8Cbizrh4q0FG6r7TvRlqKTOOw/NBhzUnhRQJIgAoanrVDMzItGz3T6qCD/ODDy
+    vjIwcOAWcK77nY7M0Uu29dkfENdlXykGZQ03JS4UPirRacmOyF7hPLuWteWCp96YhGLG
+    1aq5oTUwl/M3roBLUBmCJOGnSq/LxSN6XOz5/5BGK1NOfUoCYZnaEqoWhhmhoZ4DSx3v
+    OX7pqQtAFDCk54B2DooQC5G5UhE3ZRbarunNUsG/cmGwN3zXqRIUU7gVbMndmUYFmxEJ
+    DCxBmTtaz9qNXxdCWSdG8FIn/GNfD9iSlWVOLl5O+xjCN86HwZgwrKUINUZ3hPO3effU
+    fUVw==
+X-Gm-Message-State: AOJu0Yy1YflKTq+Q+BntLO6dg15oVqmATlXBUxIbCVidvsh2Xmw/fKLc
+    f8C/HtqCcJG6oz5iZ+7DYN+vucF1s1DjCvxuaP6p6sBklBX5aIrZEWgVlovh01wyBq7qfq8C1Sf
+    FRqKprmpQ5vs7vqPhIk1ZLeNvh7wHPnY4vw==
+X-Gm-Gg: AY/fxX6T1gVIKTd+LpTu6EAjciECNMoLQ/EQienn7dwgwxBLiG40YKbG1SiXRTXJ1iA
+    ay6XtX/lvVds3jjmb9MVECgqjdwWxBr7CHmi3/8AzzJaXwP6FtFJoSBjNoT+bXQ5LFvs4pMzpLZ
+    M/59qEGErPbxQrtId/8UUyw5WPIY4avVCye4Dexq/pzfoQPyvPzb7ORfDtUzGvXsYIbV/XbDBOF
+    HGuo9Ib1AT2MLVo5HmklWApbJ29oDv4nqjBFQDnVIeNtVFZU/xEe2Qqd13Q0uN5Ug9qLCLziSoU
+    WGGWTy3bdyhZETs5Wz5zJTcQTmshAg==
+X-Google-Smtp-Source: AGHT+IGEAdkd59/K9Lnru9uGRo6AF7vQr8aY8ocWu026zeprFzh7gEEFJxCOWf6+mjNrMCBPnI2ppxdhA7xogVmGCBE=
+X-Received: by 2002:a05:690e:13c8:b0:646:44cf:92e8 with SMTP id
+    956f58d0204a3-6466a8c0038mr12362799d50.79.1766544455733; Tue, 23 Dec 2025
+    18:47:35 -0800 (PST)
+MIME-Version: 1.0
+From: Jeff LaPointe <jeffrey.allen.lapointe@gmail.com>
+Date: Tue, 23 Dec 2025 21:47:24 -0500
+X-Gm-Features: AQt7F2qgu-Ow0K7q8tDnGOPi5vgNlnFebAKHYnLKYdGzQkWRK9Y4MVDTDHpCaso
+Message-ID: <CAOggPQvx+Z8XsqbOv4XMm_BXiXZFPLHA_JhR2w4iES2+pMygmQ@mail.gmail.com>
+Subject: Interest
+To: travisryle@lawfully-illegal.com
+Content-Type: multipart/alternative; boundary="000000000000c3954a0646a9aec2"
+X-Spam-Status: No, score=-12.00
