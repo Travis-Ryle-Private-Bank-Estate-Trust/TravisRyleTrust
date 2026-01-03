@@ -33,10 +33,57 @@
         "party": "Contra Costa County",
         "date": "2025-11-23",
         "status": "Open",
-        "bates": "Ryle-CONTRA-COSTA-0001"
+        "bates": "36
+        "
       }
     ]
-  },
+  },,
+      {
+        "led_id": "LED-20260103-007",
+        "action": "Arizona DPS false arrest - Federal civil rights case",
+        "party": "Arizona DPS / Mohave County",
+        "date": "2026-01-03",
+        "status": "Evidence Collection",
+        "bates": "Ryle-AZDPS-I24025264-0001",
+        "case_file": "cases/CASE-001-AZ-DPS/"
+      },
+      {
+        "led_id": "LED-20260103-008",
+        "action": "Experian FCRA violations - False criminal records",
+        "party": "Experian Information Solutions Inc.",
+        "date": "2026-01-03",
+        "status": "Pre-Litigation (30-day notice)",
+        "bates": "Ryle-EXPERIAN-FCRA-0001",
+        "case_file": "cases/CASE-002-Experian-FCRA/"
+      },
+      {
+        "led_id": "LED-20260103-009",
+        "action": "LexisNexis FCRA violations - Background check inaccuracies",
+        "party": "LexisNexis Risk Solutions Inc.",
+        "date": "2026-01-03",
+        "status": "Pre-Litigation",
+        "bates": "Ryle-LEXISNEXIS-FCRA-0001",
+        "case_file": "cases/CASE-003-LexisNexis-FCRA/"
+      },
+      {
+        "led_id": "LED-20260103-010",
+        "action": "Fresno County Child Support - Jurisdictional challenge",
+        "party": "Fresno County District Attorney",
+        "date": "2026-01-03",
+        "status": "Administrative Challenge",
+        "bates": "Ryle-FRESNO-CSE-200000002519088-0001",
+        "case_file": "cases/CASE-004-Fresno-ChildSupport/",
+        "case_number": "CSE #200000002519088"
+      },
+      {
+        "led_id": "LED-20260103-011",
+        "action": "LVNV Funding debt collection - FDCPA/FCRA response",
+        "party": "LVNV Funding LLC / TrueAccord",
+        "date": "2026-01-03",
+        "status": "Debt Validation Demand Sent",
+        "bates": "Ryle-LVNV-6803-0001",
+        "case_file": "cases/CASE-007-LVNV-Debt/"
+      
   "notices": [
     {
       "id": "CERT-2025-10-04-001",
@@ -83,5 +130,10 @@
       "event": "Added ledger entries: LED-20251123-004 (Kingman court), LED-20251123-005 (Aztec Constructors), LED-20251123-006 (Contra Costa)",
       "by": "Travis Steven Ryle"
     }
-  ]
+  ],
+    {
+      "date": "2026-01-03",
+      "event": "Added 5 new case entries: LED-20260103-007 (AZ DPS), LED-20260103-008 (Experian), LED-20260103-009 (LexisNexis), LED-20260103-010 (Fresno), LED-20260103-011 (LVNV). Created comprehensive case documentation structure in /cases/ folder with MASTER-INDEX.md",
+      "by": "Travis Steven Ryle"
+    }
 }
