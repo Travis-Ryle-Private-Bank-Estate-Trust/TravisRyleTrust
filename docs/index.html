@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Tracking Dashboard - Travis Ryle Private Bank Estate & Trust</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e4e4e4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            color: #00ff88;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+        .subtitle {
+            color: #888;
+            font-size: 1.2em;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+        .stat-number {
+            font-size: 3em;
+            color: #00ff88;
+            font-weight: bold;
+        }
+        .stat-label {
+            color: #aaa;
+            margin-top: 10px;
+        }
+        .table-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead {
+            background: rgba(0, 255, 136, 0.1);
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            color: #00ff88;
+            font-weight: 600;
+            border-bottom: 2px solid #00ff88;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        tr:hover {
+            background: rgba(0, 255, 136, 0.05);
+        }
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .status-open {
+            background: #ff6b6b;
+            color: white;
+        }
+        .status-evidence {
+            background: #ffd93d;
+            color: #333;
+        }
+        .status-prelitigation {
+            background: #ff9f43;
+            color: white;
+        }
+        .status-admin {
+            background: #4ecdc4;
+            color: white;
+        }
+        .status-tracking {
+            background: #95afc0;
+            color: white;
+        }
+        .status-sent {
+            background: #6c5ce7;
+            color: white;
+        }
+        .link-btn {
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .link-btn:hover {
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.5em;
+            color: #00ff88;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #666;
+            padding: 20px;
+        }
+        .github-link {
+            color: #00ff88;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📜 Case Tracking Dashboard</h1>
+            <div class="subtitle">Travis Ryle Private Bank Estate & Trust</div>
+            <div class="subtitle">Public Accountability Enforcement Agency</div>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCases">-</div>
+                <div class="stat-label">Total Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="activeCases">-</div>
+                <div class="stat-label">Active Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="evidenceCollection">-</div>
+                <div class="stat-label">Evidence Collection</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="preLitigation">-</div>
+                <div class="stat-label">Pre-Litigation</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2 style="color: #00ff88; margin-bottom: 20px;">📋 Court of Record Tracking</h2>
+            <div id="loading" class="loading">Loading case data...</div>
+            <table id="caseTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Ledger ID</th>
+                        <th>Action</th>
+                        <th>Party</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Bates Number</th>
+                        <th>Links</th>
+                    </tr>
+                </thead>
+                <tbody id="caseTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>Data sourced from: <a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust" class="github-link" target="_blank">GitHub Repository</a></p>
+            <p>ORCID: <a href="https://orcid.org/0009-0002-7324-9643" class="github-link" target="_blank">0009-0002-7324-9643</a></p>
+            <p>Last Updated: <span id="lastUpdated">-</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Fetch and display ledger data
+        async function loadCaseData() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust/main/ledger.json');
+                const data = await response.json();
+                
+                const entries = data.public_ledger.entries;
+                
+                // Update stats
+                document.getElementById('totalCases').textContent = entries.length;
+                document.getElementById('activeCases').textContent = entries.filter(e => e.status !== 'Closed').length;
+                document.getElementById('evidenceCollection').textContent = entries.filter(e => e.status.includes('Evidence') || e.status.includes('Collection')).length;
+                document.getElementById('preLitigation').textContent = entries.filter(e => e.status.includes('Pre-Litigation') || e.status.includes('Litigation')).length;
+                
+                // Populate table
+                const tbody = document.getElementById('caseTableBody');
+                tbody.innerHTML = '';
+                
+                entries.forEach(entry => {
+                    const row = document.createElement('tr');
+                    
+                    // Determine status badge class
+                    let statusClass = 'status-open';
+                    if (entry.status.includes('Evidence')) statusClass = 'status-evidence';
+                    else if (entry.status.includes('Pre-Litigation')) statusClass = 'status-prelitigation';
+                    else if (entry.status.includes('Administrative') || entry.status.includes('Challenge')) statusClass = 'status-admin';
+                    else if (entry.status.includes('Tracking')) statusClass = 'status-tracking';
+                    else if (entry.status.includes('Sent') || entry.status.includes('Demand')) statusClass = 'status-sent';
+                    
+                    row.innerHTML = `
+                        <td><strong>${entry.led_id}</strong></td>
+                        <td>${entry.action}</td>
+                        <td>${entry.party}</td>
+                        <td>${entry.date}</td>
+                        <td><span class="status-badge ${statusClass}">${entry.status}</span></td>
+                        <td><code>${entry.bates}</code></td>
+                        <td>
+                            ${entry.case_file ? `<a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust/tree/main/${entry.case_file}" class="link-btn" target="_blank">📂 View Case</a>` : '-'}
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+                
+                // Show table, hide loading
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('caseTable').style.display = 'table';
+                
+                // Update last updated time
+                document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+                
+            } catch (error) {
+                document.getElementById('loading').innerHTML = '❌ Error loading case data. Please try again later.';
+                console.error('Error loading ledger data:', error);
+            }
+        }
+        
+        // Load data on page load
+        loadCaseData();
+    </script>
+</body>
+</html>
