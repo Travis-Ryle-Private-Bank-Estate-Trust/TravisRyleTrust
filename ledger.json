@@ -33,11 +33,8 @@
         "party": "Contra Costa County",
         "date": "2025-11-23",
         "status": "Open",
-        "bates": "36
-        "
-      }
-    ]
-  },,
+        "bates": "Ryle-CONTRA-COSTA-0001"
+      },
       {
         "led_id": "LED-20260103-007",
         "action": "Arizona DPS false arrest - Federal civil rights case",
@@ -83,7 +80,9 @@
         "status": "Debt Validation Demand Sent",
         "bates": "Ryle-LVNV-6803-0001",
         "case_file": "cases/CASE-007-LVNV-Debt/"
-      
+      }
+    ]
+  },
   "notices": [
     {
       "id": "CERT-2025-10-04-001",
@@ -129,11 +128,11 @@
       "date": "2025-11-28",
       "event": "Added ledger entries: LED-20251123-004 (Kingman court), LED-20251123-005 (Aztec Constructors), LED-20251123-006 (Contra Costa)",
       "by": "Travis Steven Ryle"
-    }
-  ],
+    },
     {
       "date": "2026-01-03",
       "event": "Added 5 new case entries: LED-20260103-007 (AZ DPS), LED-20260103-008 (Experian), LED-20260103-009 (LexisNexis), LED-20260103-010 (Fresno), LED-20260103-011 (LVNV). Created comprehensive case documentation structure in /cases/ folder with MASTER-INDEX.md",
       "by": "Travis Steven Ryle"
     }
+  ]
 }
