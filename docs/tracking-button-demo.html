@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Tracking Button Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .demo-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+        }
+        .email-content {
+            border-left: 4px solid #0066cc;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #555;
+        }
+        .button-preview {
+            background: #fff;
+            border: 2px dashed #ddd;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-section">
+        <h1>📧 Email Tracking Button Demo</h1>
+        <p><strong>The Travis Ryle Private Bank Estate & Trust</strong></p>
+        <p>This demonstrates how tracking buttons appear in sent emails, allowing recipients to view evidence on the public ledger.</p>
+    </div>
+
+    <div class="demo-section">
+        <h2>Sample Email with Tracking Button</h2>
+        
+        <div class="email-content">
+            <p><strong>From:</strong> Travis Steven Ryle &lt;travis@trust.com&gt;</p>
+            <p><strong>To:</strong> recipient@example.com</p>
+            <p><strong>Subject:</strong> Legal Notice - Evidence Required</p>
+            <p><strong>Date:</strong> November 7, 2025</p>
+        </div>
+
+        <div style="padding: 20px; background: #fafafa; border: 1px solid #e0e0e0;">
+            <p>Dear Recipient,</p>
+            
+            <p>This is a formal notice regarding Case #12345. All correspondence is being tracked and recorded on the public ledger for transparency and verification purposes.</p>
+            
+            <p>Please review the attached documentation and respond within 30 days.</p>
+            
+            <p>Best regards,<br>
+            Travis Steven Ryle<br>
+            Ambassador in Christ<br>
+            The Travis Ryle Private Bank Estate & Trust</p>
+            
+            <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
+            
+            <!-- TRACKING BUTTON APPEARS HERE -->
+            <div class="button-preview">
+                <div style="margin: 30px 0; padding: 20px; background-color: #f5f5f5; border-radius: 5px; text-align: center;">
+                    <p style="margin: 0 0 15px 0; color: #666; font-size: 14px;">
+                        📊 This correspondence is tracked and verified on the public ledger.
+                    </p>
+                    <a href="https://www.lawfully-illegal.com/public-ledge?record_id=4ab5ff3f-99ae-4fa4-8032-0abfe7c2e217&type=email&subject=Test+Tracking+Button+Feature&date=2025-11-07" 
+                       style="display: inline-block; padding: 12px 30px; background-color: #0066cc; 
+                              color: white; text-decoration: none; border-radius: 4px; 
+                              font-weight: bold; font-size: 16px;"
+                       target="_blank">
+                        View Evidence on Public Ledge
+                    </a>
+                    <p style="margin: 15px 0 0 0; color: #999; font-size: 12px;">
+                        Record ID: <code style="background: #fff; padding: 2px 6px; border-radius: 3px;">4ab5ff3f-99ae-4fa4-8032-0abfe7c2e217</code>
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #999;">
+                <p style="margin: 5px 0;">
+                    <strong>The Travis Ryle Private Bank Estate & Trust</strong><br>
+                    Public Ledger: <a href="https://www.lawfully-illegal.com/public-ledge" style="color: #0066cc;">lawfully-illegal.com/public-ledge</a><br>
+                    GitHub Repository: <a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust" style="color: #0066cc;">TravisRyleTrust</a><br>
+                    ORCID: <a href="https://orcid.org/0009-0002-7324-9643" style="color: #0066cc;">0009-0002-7324-9643</a>
+                </p>
+                <p style="margin: 10px 0 0 0; font-size: 11px;">
+                    ⚖️ All correspondence is recorded, timestamped, and cryptographically verified.<br>
+                    📝 Any claims made by parties are tracked and subject to public verification.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>How It Works</h2>
+        
+        <div class="info-box">
+            <h3 style="margin-top: 0;">For Senders (You)</h3>
+            <ol>
+                <li>Track your email with <code>track_email.py</code></li>
+                <li>Generate the button with <code>generate_tracking_button.py</code></li>
+                <li>Copy and paste the HTML code into your email</li>
+                <li>Send the email</li>
+            </ol>
+        </div>
+
+        <div class="info-box">
+            <h3 style="margin-top: 0;">For Recipients</h3>
+            <ol>
+                <li>Receive email with tracking button</li>
+                <li>Click "View Evidence on Public Ledge" button</li>
+                <li>See the verified record on the public ledger</li>
+                <li>Your click is tracked (via web analytics)</li>
+            </ol>
+        </div>
+
+        <h3>What Recipients See on Public Ledge:</h3>
+        <ul>
+            <li>✅ Email subject and date</li>
+            <li>✅ Cryptographic checksum (SHA-256)</li>
+            <li>✅ Timestamp of when email was tracked</li>
+            <li>✅ Record type and status</li>
+            <li>✅ Link to GitHub repository for full verification</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <h2>Benefits</h2>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr style="background: #f5f5f5;">
+                <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Feature</th>
+                <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ddd;">Benefit</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>🔒 Cryptographic Proof</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">SHA-256 checksums verify email integrity</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>⏰ Timestamping</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">Git commits provide immutable timestamps</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>👁️ Public Transparency</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">Anyone can verify the evidence</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>📊 Click Tracking</strong></td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">Know when recipients view the evidence</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;"><strong>⚖️ Legal Standing</strong></td>
+                <td style="padding: 10px;">Strengthen your position with verifiable records</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="demo-section">
+        <h2>Get Started</h2>
+        <p>See the complete documentation:</p>
+        <ul>
+            <li><a href="../docs/email-tracking-button-guide.md">Email Tracking Button Guide</a></li>
+            <li><a href="../templates/email-with-tracking-button.html">HTML Email Template</a></li>
+            <li><a href="../templates/email-with-tracking-link.txt">Plain Text Email Template</a></li>
+        </ul>
+    </div>
+</body>
+</html>

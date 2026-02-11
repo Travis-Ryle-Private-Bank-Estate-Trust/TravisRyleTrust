@@ -31,7 +31,24 @@ This repository integrates with the [lawfully-illegal.com public ledge](https://
 This repository includes a system for tracking sent emails with cryptographic verification:
 
 - **Store emails** in `communications/emails/` as .eml, .msg, .mbox, or PDF files
-- **Track emails** using `scripts/track_email.py` to create verified records
+- **Track emails** using `scripts/track_email.py` to create verified records with tracking URLs
+- **Generate tracking buttons** using `scripts/generate_tracking_button.py` for HTML/text emails
 - **List emails** using `scripts/list_emails.py` to view all tracked correspondence
 
-See [communications/README.md](communications/README.md) for detailed instructions.
+### Quick Start: Add Tracking Button to Emails
+
+```bash
+# 1. Track your email
+python3 scripts/track_email.py communications/emails/2025-11-15-notice.eml \
+  --to recipient@example.com \
+  --subject "Your Subject"
+
+# 2. Generate tracking button
+python3 scripts/generate_tracking_button.py records/YOUR-RECORD.yaml
+
+# 3. Copy the HTML code and paste it into your email
+```
+
+Recipients can click the button to view verified evidence on the [public ledge](https://www.lawfully-illegal.com/public-ledge), and their clicks are tracked.
+
+See [docs/email-tracking-button-guide.md](docs/email-tracking-button-guide.md) for complete instructions and [communications/README.md](communications/README.md) for email storage guidelines.
