@@ -64,6 +64,12 @@ def generate_tracking_url(record_id, record_data):
 
 def generate_html_button(tracking_url, button_text="View Evidence on Public Ledge"):
     """Generate HTML button code."""
+    # Extract record ID from URL using proper parsing
+    from urllib.parse import urlparse, parse_qs
+    parsed = urlparse(tracking_url)
+    params = parse_qs(parsed.query)
+    record_id = params.get('record_id', ['N/A'])[0]
+    
     html = f"""
 <!-- Email Tracking Button -->
 <div style="margin: 30px 0; padding: 20px; background-color: #f5f5f5; border-radius: 5px; text-align: center;">
@@ -78,7 +84,7 @@ def generate_html_button(tracking_url, button_text="View Evidence on Public Ledg
         {button_text}
     </a>
     <p style="margin: 15px 0 0 0; color: #999; font-size: 12px;">
-        Record ID: <code style="background: #fff; padding: 2px 6px; border-radius: 3px;">{tracking_url.split('record_id=')[1].split('&')[0] if 'record_id=' in tracking_url else 'N/A'}</code>
+        Record ID: <code style="background: #fff; padding: 2px 6px; border-radius: 3px;">{record_id}</code>
     </p>
 </div>
 """
@@ -89,10 +95,10 @@ def generate_plain_text_link(tracking_url):
     """Generate plain text version of tracking link."""
     return f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 VIEW EVIDENCE ON PUBLIC LEDGER
+📊 VIEW EVIDENCE ON PUBLIC LEDGE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-This correspondence is tracked and verified on the public ledger.
+This correspondence is tracked and verified on the public ledge.
 Click the link below to view the evidence:
 
 {tracking_url}
@@ -166,9 +172,9 @@ def main():
     output_dir = "/tmp/tracking-buttons"
     os.makedirs(output_dir, exist_ok=True)
     
-    safe_id = record_id[:8]
-    html_file = f"{output_dir}/{safe_id}-button.html"
-    txt_file = f"{output_dir}/{safe_id}-link.txt"
+    truncated_id = record_id[:8]
+    html_file = f"{output_dir}/{truncated_id}-button.html"
+    txt_file = f"{output_dir}/{truncated_id}-link.txt"
     
     with open(html_file, 'w', encoding='utf-8') as f:
         f.write(html_button)
