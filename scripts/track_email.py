@@ -4,6 +4,10 @@ Track sent emails by creating a record with metadata.
 Usage: scripts/track_email.py <email_file> --to <recipient> --subject "Subject" [options]
 """
 import sys, os, datetime as dt, yaml, hashlib, uuid
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
 
 def now_iso():
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
@@ -32,6 +36,18 @@ def build_attachment(path, description=None):
 def write_yaml(path, data):
     with open(path, "w", encoding="utf-8") as f:
         yaml.safe_dump(data, f, sort_keys=False, allow_unicode=True)
+
+def generate_tracking_url(record_id, subject, sent_date):
+    """Generate tracking URL for public ledge."""
+    PUBLIC_LEDGE_URL = "https://www.lawfully-illegal.com/public-ledge"
+    params = {
+        'record_id': record_id,
+        'type': 'email',
+        'subject': subject,
+        'date': sent_date
+    }
+    query_string = urlencode(params)
+    return f"{PUBLIC_LEDGE_URL}?{query_string}"
 
 def main():
     if len(sys.argv) < 2:
@@ -119,12 +135,16 @@ def main():
     ts = now_iso()
     sent_date = sent_date or ts[:10]
     
+    # Generate tracking URL
+    tracking_url = generate_tracking_url(rec_id, subject, sent_date)
+    
     record = {
         "id": rec_id,
         "type": "email",
         "title": f"Email: {subject}",
         "created_at": ts,
         "status": "sent",
+        "tracking_url": tracking_url,
         "email_metadata": {
             "to": to_recipient,
             "cc": cc_recipients if cc_recipients else [],
@@ -153,6 +173,9 @@ def main():
     
     write_yaml(out, record)
     print(out)
+    print(f"\nTracking URL: {tracking_url}")
+    print(f"\nTo generate HTML button for this email, run:")
+    print(f"  python3 scripts/generate_tracking_button.py {out}")
     return 0
 
 if __name__ == "__main__":

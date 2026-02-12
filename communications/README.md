@@ -32,7 +32,24 @@ This will create a YAML record in `records/` with metadata including:
 - Send date
 - File checksum (SHA-256)
 - File size
+- **Tracking URL** for public ledge
 
-The record enables tracking and verification of sent emails in the trust ledger.
+### Adding Tracking Buttons to Emails
 
-For detailed usage examples and best practices, see [docs/email-tracking-guide.md](../docs/email-tracking-guide.md).
+After tracking an email, generate a tracking button:
+
+```bash
+python3 scripts/generate_tracking_button.py records/YOUR-RECORD.yaml
+```
+
+This outputs:
+- **HTML button code** - Paste into HTML emails
+- **Plain text link** - Paste into text emails
+- **Pre-filled templates** - Saved to `/tmp/tracking-buttons/`
+
+When recipients click the button, they can:
+- View verified evidence on the public ledger
+- See cryptographic checksums and timestamps
+- Their click is tracked via web analytics
+
+For detailed usage examples and best practices, see [docs/email-tracking-button-guide.md](../docs/email-tracking-button-guide.md).
