@@ -26,11 +26,14 @@ on:
         required: false
         type: string
 
-  # Run when identifiers config changes
+  # Run when identifiers config or any scraper script changes
   push:
     paths:
       - 'records/identifiers/**'
       - 'scripts/scrape_identifiers.py'
+      - 'scripts/scrape_lexisnexis.py'
+      - 'scripts/scrape_ssa_bnc.py'
+      - 'scripts/scrape_irs_1098.py'
 
 jobs:
   scrape-and-record:
@@ -67,6 +70,24 @@ jobs:
           echo "Creating immutable record in GitHub..."
           python3 scripts/scrape_identifiers.py --scrape
       
+      - name: Track LexisNexis state/federal identifiers
+        if: ${{ github.event.inputs.action == 'scrape' || github.event_name == 'schedule' || github.event_name == 'push' }}
+        run: |
+          echo "🔍 Tracking LexisNexis public record identifiers (FCRA consumer disclosure)..."
+          python3 scripts/scrape_lexisnexis.py
+      
+      - name: Track SSA federal identifiers
+        if: ${{ github.event.inputs.action == 'scrape' || github.event_name == 'schedule' || github.event_name == 'push' }}
+        run: |
+          echo "🔍 Tracking Social Security Administration identifiers (BNC, benefit verification)..."
+          python3 scripts/scrape_ssa_bnc.py
+      
+      - name: Track IRS federal identifiers
+        if: ${{ github.event.inputs.action == 'scrape' || github.event_name == 'schedule' || github.event_name == 'push' }}
+        run: |
+          echo "🔍 Tracking IRS Form 1098 federal identifiers (mortgage interest, account numbers)..."
+          python3 scripts/scrape_irs_1098.py
+      
       - name: Generate discrepancy report
         if: ${{ github.event.inputs.action == 'report' }}
         run: |
@@ -92,13 +113,7 @@ jobs:
             echo "No new records to commit."
           else
             TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-            git commit -m "📜 Incrimination Nation: Record snapshot ${TIMESTAMP}
-
-Automated public record scrape committed to immutable Git history.
-Website: https://www.lawfully-illegal.com/public-ledge
-
-This record cannot be destroyed - it is part of Git history."
-            
+            git commit -m "$(printf '📜 Incrimination Nation: Record snapshot %s\n\nAutomated public record scrape committed to immutable Git history.\nWebsite: https://www.lawfully-illegal.com/public-ledge\n\nThis record cannot be destroyed - it is part of Git history.' "${TIMESTAMP}")"
             git push
             echo "✅ Records committed to immutable Git history."
           fi
