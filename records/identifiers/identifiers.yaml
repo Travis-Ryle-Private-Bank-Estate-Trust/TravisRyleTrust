@@ -99,7 +99,7 @@ entities:
   - name: "Social Security Administration"
     type: "Federal Agency"
     state: "Federal"
-    identifiers:
+    identifiers: "602-05-7209"
       agency_url: "https://www.ssa.gov"
       bnc_issued: "26J6558J21517"
     claimed_statements:
