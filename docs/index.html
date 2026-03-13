@@ -204,63 +204,140 @@
     </div>
 
     <script>
+        // Embedded fallback data (used when offline or fetch fails)
+        const OFFLINE_LEDGER_ENTRIES = [
+            {
+                "led_id": "LED-20251123-004",
+                "action": "Public record inquiry: Kingman court",
+                "party": "Mohave County / Kingman",
+                "date": "2025-11-23",
+                "status": "Open",
+                "bates": "Ryle-KINGMAN-COURT-0001"
+            },
+            {
+                "led_id": "LED-20251123-005",
+                "action": "Entity dossier: Aztec Constructors",
+                "party": "Corporate records",
+                "date": "2025-11-23",
+                "status": "Open",
+                "bates": "Ryle-AZTEC-DOSSIER-0001"
+            },
+            {
+                "led_id": "LED-20251123-006",
+                "action": "County records inquiry: Contra Costa",
+                "party": "Contra Costa County",
+                "date": "2025-11-23",
+                "status": "Open",
+                "bates": "Ryle-CONTRA-COSTA-0001"
+            },
+            {
+                "led_id": "LED-20260103-007",
+                "action": "Arizona DPS false arrest - Federal civil rights case",
+                "party": "Arizona DPS / Mohave County",
+                "date": "2026-01-03",
+                "status": "Evidence Collection",
+                "bates": "Ryle-AZDPS-I24025264-0001",
+                "case_file": "cases/CASE-001-AZ-DPS/"
+            },
+            {
+                "led_id": "LED-20260103-008",
+                "action": "Experian FCRA violations - False criminal records",
+                "party": "Experian Information Solutions Inc.",
+                "date": "2026-01-03",
+                "status": "Pre-Litigation (30-day notice)",
+                "bates": "Ryle-EXPERIAN-FCRA-0001",
+                "case_file": "cases/CASE-002-Experian-FCRA/"
+            },
+            {
+                "led_id": "LED-20260103-009",
+                "action": "LexisNexis FCRA violations - Background check inaccuracies",
+                "party": "LexisNexis Risk Solutions Inc.",
+                "date": "2026-01-03",
+                "status": "Pre-Litigation",
+                "bates": "Ryle-LEXISNEXIS-FCRA-0001",
+                "case_file": "cases/CASE-003-LexisNexis-FCRA/"
+            },
+            {
+                "led_id": "LED-20260103-010",
+                "action": "Fresno County Child Support - Jurisdictional challenge",
+                "party": "Fresno County District Attorney",
+                "date": "2026-01-03",
+                "status": "Administrative Challenge",
+                "bates": "Ryle-FRESNO-CSE-200000002519088-0001",
+                "case_file": "cases/CASE-004-Fresno-ChildSupport/"
+            },
+            {
+                "led_id": "LED-20260103-011",
+                "action": "LVNV Funding debt collection - FDCPA/FCRA response",
+                "party": "LVNV Funding LLC / TrueAccord",
+                "date": "2026-01-03",
+                "status": "Debt Validation Demand Sent",
+                "bates": "Ryle-LVNV-6803-0001",
+                "case_file": "cases/CASE-007-LVNV-Debt/"
+            }
+        ];
+
+        function renderEntries(entries, offline) {
+            // Update stats
+            document.getElementById('totalCases').textContent = entries.length;
+            document.getElementById('activeCases').textContent = entries.filter(e => e.status !== 'Closed').length;
+            document.getElementById('evidenceCollection').textContent = entries.filter(e => e.status.includes('Evidence') || e.status.includes('Collection')).length;
+            document.getElementById('preLitigation').textContent = entries.filter(e => e.status.includes('Pre-Litigation') || e.status.includes('Litigation')).length;
+
+            // Populate table
+            const tbody = document.getElementById('caseTableBody');
+            tbody.innerHTML = '';
+
+            entries.forEach(entry => {
+                const row = document.createElement('tr');
+
+                // Determine status badge class
+                let statusClass = 'status-open';
+                if (entry.status.includes('Evidence')) statusClass = 'status-evidence';
+                else if (entry.status.includes('Pre-Litigation')) statusClass = 'status-prelitigation';
+                else if (entry.status.includes('Administrative') || entry.status.includes('Challenge')) statusClass = 'status-admin';
+                else if (entry.status.includes('Tracking')) statusClass = 'status-tracking';
+                else if (entry.status.includes('Sent') || entry.status.includes('Demand')) statusClass = 'status-sent';
+
+                row.innerHTML = `
+                    <td><strong>${entry.led_id}</strong></td>
+                    <td>${entry.action}</td>
+                    <td>${entry.party}</td>
+                    <td>${entry.date}</td>
+                    <td><span class="status-badge ${statusClass}">${entry.status}</span></td>
+                    <td><code>${entry.bates}</code></td>
+                    <td>
+                        ${entry.case_file ? `<a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust/tree/main/${entry.case_file}" class="link-btn" target="_blank">📂 View Case</a>` : '-'}
+                    </td>
+                `;
+
+                tbody.appendChild(row);
+            });
+
+            // Show table, hide loading
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('caseTable').style.display = 'table';
+
+            // Update last updated time (with offline notice if applicable)
+            const ts = new Date().toLocaleString();
+            document.getElementById('lastUpdated').textContent = offline
+                ? ts + ' (offline — showing cached data)'
+                : ts;
+        }
+
         // Fetch and display ledger data
         async function loadCaseData() {
             try {
                 const response = await fetch('https://raw.githubusercontent.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust/main/ledger.json');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 const data = await response.json();
-                
-                const entries = data.public_ledger.entries;
-                
-                // Update stats
-                document.getElementById('totalCases').textContent = entries.length;
-                document.getElementById('activeCases').textContent = entries.filter(e => e.status !== 'Closed').length;
-                document.getElementById('evidenceCollection').textContent = entries.filter(e => e.status.includes('Evidence') || e.status.includes('Collection')).length;
-                document.getElementById('preLitigation').textContent = entries.filter(e => e.status.includes('Pre-Litigation') || e.status.includes('Litigation')).length;
-                
-                // Populate table
-                const tbody = document.getElementById('caseTableBody');
-                tbody.innerHTML = '';
-                
-                entries.forEach(entry => {
-                    const row = document.createElement('tr');
-                    
-                    // Determine status badge class
-                    let statusClass = 'status-open';
-                    if (entry.status.includes('Evidence')) statusClass = 'status-evidence';
-                    else if (entry.status.includes('Pre-Litigation')) statusClass = 'status-prelitigation';
-                    else if (entry.status.includes('Administrative') || entry.status.includes('Challenge')) statusClass = 'status-admin';
-                    else if (entry.status.includes('Tracking')) statusClass = 'status-tracking';
-                    else if (entry.status.includes('Sent') || entry.status.includes('Demand')) statusClass = 'status-sent';
-                    
-                    row.innerHTML = `
-                        <td><strong>${entry.led_id}</strong></td>
-                        <td>${entry.action}</td>
-                        <td>${entry.party}</td>
-                        <td>${entry.date}</td>
-                        <td><span class="status-badge ${statusClass}">${entry.status}</span></td>
-                        <td><code>${entry.bates}</code></td>
-                        <td>
-                            ${entry.case_file ? `<a href="https://github.com/Travis-Ryle-Private-Bank-Estate-Trust/TravisRyleTrust/tree/main/${entry.case_file}" class="link-btn" target="_blank">📂 View Case</a>` : '-'}
-                        </td>
-                    `;
-                    
-                    tbody.appendChild(row);
-                });
-                
-                // Show table, hide loading
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('caseTable').style.display = 'table';
-                
-                // Update last updated time
-                document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
-                
+                renderEntries(data.public_ledger.entries, false);
             } catch (error) {
-                document.getElementById('loading').innerHTML = '❌ Error loading case data. Please try again later.';
-                console.error('Error loading ledger data:', error);
+                console.warn('Could not fetch live ledger data; falling back to offline cache.', error);
+                renderEntries(OFFLINE_LEDGER_ENTRIES, true);
             }
         }
-        
+
         // Load data on page load
         loadCaseData();
     </script>
