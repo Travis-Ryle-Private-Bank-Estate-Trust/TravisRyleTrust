@@ -147,6 +147,28 @@ entities:
       - "IRS 1098 scraper cross-references account numbers against official IRS records"
       - "Track for mortgage interest deduction verification"
 
+  - name: "OpenCorporates"
+    type: "Corporate Registry Aggregator"
+    state: "International"
+    identifiers:
+      corporate_url: "https://opencorporates.com"
+      support_portal: "https://opencorporates.atlassian.net/servicedesk/customer/portal/4"
+      support_ticket: "OCESD-59463"
+      ticket_submitted: "2026-02-22"
+      ticket_confirmation_email: "travisryle@lawfully-illegal.com"
+    claimed_statements:
+      - field: "data_coverage"
+        value: "Largest open database of companies in the world"
+        source: "https://opencorporates.com/info/about"
+      - field: "data_source"
+        value: "Official government registries worldwide"
+        source: "https://opencorporates.com/registers"
+    notes:
+      - "Support ticket OCESD-59463 submitted February 22, 2026"
+      - "Confirmation sent to travisryle@lawfully-illegal.com"
+      - "Monitor for response and resolution - ledger entry LED-20260222-012"
+      - "Cross-reference corporate records against official state/federal registries"
+
 # Public record sources to query
 sources:
   - name: "LexisNexis Consumer Disclosure"
@@ -193,3 +215,10 @@ sources:
     url: "https://www.lawfully-illegal.com/public-ledge"
     type: "integration"
     description: "Primary website integration for tracking"
+
+  - name: "OpenCorporates"
+    url: "https://opencorporates.com"
+    type: "corporate_registry"
+    support_ticket: "OCESD-59463"
+    support_portal: "https://opencorporates.atlassian.net/servicedesk/customer/portal/4"
+    description: "Global corporate registry aggregating official government company data - support ticket submitted Feb 22 2026"
