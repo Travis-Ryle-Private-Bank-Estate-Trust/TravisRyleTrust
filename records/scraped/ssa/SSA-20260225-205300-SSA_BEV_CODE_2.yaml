@@ -1,0 +1,11 @@
+identifier_type: SSA_BEV_CODE_2
+metadata:
+  agency: Social Security Administration
+  policy_reference: https://www.ssa.gov/legislation/testimony_052317.html
+notes: SSA document processing marker - CCM=Current Computation Month, R260219=revision
+  date Feb 26 2019
+record_id: SSA-20260225-205300
+source: SSA Benefit Verification Letter
+timestamp: '2026-02-25T20:53:00.633862+00:00'
+value: CCM.M72.BEV1E.R260219
+verified: true

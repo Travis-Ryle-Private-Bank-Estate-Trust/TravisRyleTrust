@@ -1,0 +1,11 @@
+identifier_type: IRS_1098_ACCOUNT_1
+metadata:
+  agency: Internal Revenue Service
+  form: Form 1098 - Mortgage Interest Statement
+  reference_url: https://www.irs.gov/forms-pubs/about-form-1098
+notes: IRS Form 1098 Mortgage Interest Statement - account/document locator sequence
+record_id: IRS-20260225-205300
+source: IRS Form 1098
+timestamp: '2026-02-25T20:53:00.580977+00:00'
+value: '109804891192'
+verified: true

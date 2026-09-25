@@ -1,0 +1,11 @@
+identifier_type: SSA_BNC
+metadata:
+  agency: Social Security Administration
+  policy_reference: https://www.ssa.gov/legislation/testimony_052317.html
+notes: Beneficiary Notice Code - 13-character encrypted alphanumeric identifier replacing
+  SSN on SSA correspondence
+record_id: SSA-20260225-205300
+source: Social Security Administration
+timestamp: '2026-02-25T20:53:00.632395+00:00'
+value: 26J6558J21517
+verified: true

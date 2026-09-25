@@ -1,0 +1,10 @@
+identifier_type: SSA_BEV_CODE_1
+metadata:
+  agency: Social Security Administration
+  policy_reference: https://www.ssa.gov/legislation/testimony_052317.html
+notes: SSA benefit verification letter control marker - BEV = Benefit Verification
+record_id: SSA-20260225-205300
+source: SSA Benefit Verification Letter
+timestamp: '2026-02-25T20:53:00.633214+00:00'
+value: 0101BEV1EET1LML
+verified: true
