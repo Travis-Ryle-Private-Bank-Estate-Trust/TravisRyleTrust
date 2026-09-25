@@ -1,0 +1,27 @@
+id: opencorporates-support-ticket-ocesd-59463
+type: support_ticket
+title: "OpenCorporates Support Ticket - OCESD-59463"
+created_at: "2026-02-22T00:00:00Z"
+status: submitted
+tracking_url: "https://www.lawfully-illegal.com/public-ledge?record_id=LED-20260222-012&type=support_ticket&subject=OpenCorporates-OCESD-59463&date=2026-02-22"
+ticket_metadata:
+  platform: "OpenCorporates (via Jira Service Management)"
+  reference_number: OCESD-59463
+  date_submitted: "2026-02-22"
+  ticket_url: https://opencorporates.atlassian.net/servicedesk/customer/portal/4/create/43/confirm
+  confirmation_email: travisryle@lawfully-illegal.com
+ticket_status:
+  submitted: true
+  confirmation_email_received: false
+  response_received: false
+  issue_resolved: false
+notes:
+  - Support ticket submitted to OpenCorporates support portal on February 22, 2026
+  - Reference number OCESD-59463 assigned
+  - Confirmation sent to travisryle@lawfully-illegal.com
+  - Monitor inbox for updates and responses
+ledger_entry: LED-20260222-012
+bates: Ryle-OPENCORPORATES-OCESD59463-0001
+metadata:
+  source: manual
+  version: 1

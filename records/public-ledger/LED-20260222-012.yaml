@@ -1,0 +1,27 @@
+led_id: LED-20260222-012
+action: "OpenCorporates support ticket - OCESD-59463"
+party: OpenCorporates Ltd.
+date: "2026-02-22"
+status: "Submitted - Awaiting Response"
+ticket_reference: OCESD-59463
+links:
+  ticket_url: https://opencorporates.atlassian.net/servicedesk/customer/portal/4/create/43/confirm
+  opencorporates_url: https://opencorporates.com
+hash: SHA256-PENDING
+bates: Ryle-OPENCORPORATES-OCESD59463-0001
+metadata:
+  source: public-ledge
+  website: https://www.lawfully-illegal.com/public-ledge
+  version: 1
+  created_at: "2026-02-22T00:00:00Z"
+notes:
+  - Support ticket submitted to OpenCorporates on February 22, 2026
+  - Reference number OCESD-59463
+  - Confirmation sent to travisryle@lawfully-illegal.com
+  - Monitor inbox for updates and response from OpenCorporates
+  - Ticket URL: https://opencorporates.atlassian.net/servicedesk/customer/portal/4/create/43/confirm
+ticket_status:
+  submitted: true
+  confirmation_email_received: false
+  response_received: false
+  issue_resolved: false

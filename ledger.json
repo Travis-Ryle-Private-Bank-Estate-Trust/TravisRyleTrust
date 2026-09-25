@@ -80,6 +80,16 @@
         "status": "Debt Validation Demand Sent",
         "bates": "Ryle-LVNV-6803-0001",
         "case_file": "cases/CASE-007-LVNV-Debt/"
+      },
+      {
+        "led_id": "LED-20260222-012",
+        "action": "OpenCorporates support ticket - OCESD-59463",
+        "party": "OpenCorporates Ltd.",
+        "date": "2026-02-22",
+        "status": "Submitted - Awaiting Response",
+        "bates": "Ryle-OPENCORPORATES-OCESD59463-0001",
+        "ticket_reference": "OCESD-59463",
+        "record_file": "records/public-ledger/LED-20260222-012.yaml"
       }
     ]
   },
@@ -132,6 +142,11 @@
     {
       "date": "2026-01-03",
       "event": "Added 5 new case entries: LED-20260103-007 (AZ DPS), LED-20260103-008 (Experian), LED-20260103-009 (LexisNexis), LED-20260103-010 (Fresno), LED-20260103-011 (LVNV). Created comprehensive case documentation structure in /cases/ folder with MASTER-INDEX.md",
+      "by": "Travis Steven Ryle"
+    },
+    {
+      "date": "2026-02-22",
+      "event": "OpenCorporates support ticket submitted - reference OCESD-59463. Added LED-20260222-012. Confirmation sent to travisryle@lawfully-illegal.com. Monitoring for response.",
       "by": "Travis Steven Ryle"
     }
   ]
