@@ -1,0 +1,52 @@
+led_id: CPRA-26-646-VENTURA
+action: "CPRA Public Records Request - Ventura County"
+party: Ventura County (VCSO, DA, Probation Agency)
+date: "2026-02-24"
+status: Open
+request_number: "26-646"
+case_number: "2007001048"
+requester:
+  name: Travis Steven Ryle
+  entity: "Lawfully Illegal Public Enforcement Accountability Agency & The Travis Ryle Private Bank Estate & Trust"
+  email: travisryle@gmail.com
+  address: "5570 W Tonto Pl, Golden Valley, AZ 86413"
+  phone: "928-488-2763"
+contact:
+  point_of_contact: vcso.publicrecordsrequests@ventura.org
+  staff_assigned: "Jakeline De Leon, Deputy Clerk of the Board"
+  staff_phone: "805-654-2521"
+timeline:
+  - date: "2026-02-24T15:37:00"
+    event: "Request submitted via web"
+  - date: "2026-02-24T16:15:00"
+    event: "Acknowledged by Jakeline De Leon; forwarded to VCSO, DA, and Probation Agency"
+  - date: "2026-02-24T17:24:00"
+    event: "Follow-up clarification submitted by requester expanding scope under Gov. Code SS7920.000 et seq."
+records_requested:
+  - "Preliminary hearing transcript (May 18, 2007 - Carlos Macias testimony)"
+  - "All arrest reports, incident reports, probable cause affidavits, and investigative files"
+  - "Confidential informant documents (redacted per Evidence Code S1041)"
+  - "Charging documents, complaint, information, or indictment"
+  - "Probation files, terms, violation reports, and termination/dismissal orders"
+  - "Court minute orders, dismissal/reduction orders, and Penal Code S1203.4 expungement filings"
+  - "Financial/billing records including approx. $11,000 fees (itemized breakdowns, payment history)"
+  - "Internal affairs or complaint records related to case or informant involvement"
+deadline: "2026-03-06"
+links:
+  source_url: "https://ventura.nextrequest.com/requests/26-646"
+  exhibit: null
+hash: SHA256-PENDING
+bates: Ryle-VENTURA-CPRA-26-646-0001
+metadata:
+  source: public-ledger-tracking-common
+  trust: "The Travis Ryle Private Bank Estate & Trust"
+  website: https://www.lawfully-illegal.com/public-ledge
+  version: 1
+  created_at: "2026-02-26T15:00:00-08:00"
+notes:
+  - "CPRA request filed under Cal. Gov. Code Sec. 7920.000 et seq."
+  - "Request forwarded by Clerk of the Board to VCSO, DA, and Probation Agency"
+  - "Clerk of the Board has no responsive records"
+  - "Response deadline set for March 6, 2026"
+  - "Tracked in Incrimination Nation GitHub repository under lawfullyillegal-droid"
+  - "Public-facing ledger entry for The Travis Ryle Private Bank Estate & Trust"
